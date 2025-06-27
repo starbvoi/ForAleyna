@@ -9,26 +9,22 @@
       font-family: 'Comic Sans MS', cursive;
       text-align: center;
       background-color: #fff0f5;
-      padding: 40px;
+      padding: 50px;
     }
     h1 {
       color: #e91e63;
-    }
-    img {
-      width: 250px;
-      border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-size: 28px;
     }
     #text-box {
-      margin-top: 20px;
-      font-size: 18px;
+      margin-top: 40px;
+      font-size: 20px;
       color: #333;
-      min-height: 60px;
+      min-height: 80px;
     }
     #nextBtn {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 18px;
       background-color: #ff69b4;
       border: none;
       border-radius: 10px;
@@ -40,20 +36,22 @@
 <body>
   <h1>Pacarku masih ngambek?</h1>
 
-  <img src="https://raw.githubusercontent.com/starbvoi/ForAleyna/main/aleyna.jpg" alt="Foto Aleyna" />
-
-  <div id="text-box">Tapi kamu tetap cantik walau lagi ngambek...</div>
+  <div id="text-box">Tapi kamu tetap manis walau lagi ngambek...</div>
 
   <button id="nextBtn">Lanjut ➡️</button>
 
   <script>
     const texts = [
-      "Tapi kamu tetap cantik walau lagi ngambek...",
-      "Maaf ya kalo aku bikin kamu sebel 😔",
-      "Aku cuma pengen kamu senyum lagi 😊",
-      "Kalau kamu senyum, duniaku ikut cerah 🌞",
-      "Aku sayang kamu, Aleyna. Beneran. 💖",
-      "Jadi, udah nggak ngambek lagi kan? 😚"
+      "Tapi kamu tetap manis walau lagi ngambek...",
+      "Aku tahu mungkin aku nyebelin, maaf yaa 😔",
+      "Tapi aku cuma pengen kamu bahagia 😢",
+      "Kamu itu penyemangat hariku, beneran 🥺",
+      "Tanpa kamu tuh... sepi banget rasanya 🫠",
+      "Jadi jangan lama-lama ngambek yaa 😭",
+      "Aku sayang kamu, Aleyna. Banget ❤️",
+      "Mau peluk? Aku peluk dari sini 🤗",
+      "Udah senyum yaaa 😁",
+      "Kalo udah baikan, bilang yaa 🥰"
     ];
 
     let index = 0;
@@ -65,7 +63,7 @@
       if (index < texts.length) {
         textBox.textContent = texts[index];
       } else {
-        textBox.textContent = "Udah habis pesanku... tapi cintaku ke kamu nggak akan habis 🥰";
+        textBox.textContent = "Pesannya udah selesai... tapi rasa sayangnya nggak akan selesai 💘";
         nextBtn.style.display = "none";
       }
     });
