@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pacarku Masih Ngambek?</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #ffe6e6;
+      margin: 0;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2em;
+      color: #ff4d4d;
+    }
+    .button-container {
+      position: relative;
+      height: 200px;
+      margin-top: 40px;
+    }
+    button {
+      padding: 15px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      position: absolute;
+      transition: top 0.2s, left 0.2s;
+    }
+    #yesBtn {
+      background-color: #4CAF50;
+      color: white;
+      left: 30%;
+    }
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+      left: 60%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pacarku masih ngambek?</h1>
+  <div class="button-container">
+    <button id="yesBtn">Udah baikan</button>
+    <button id="noBtn">Masih</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseover", () => {
+      const container = document.querySelector(".button-container");
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    });
+
+    document.getElementById("yesBtn").addEventListener("click", () => {
+      alert("Yayyy! Sayang kamu ❤️");
+    });
+  </script>
+</body>
+</html>
