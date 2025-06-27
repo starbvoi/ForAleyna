@@ -3,69 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pacarku Masih Ngambek?</title>
+  <title>Untuk Aleyna</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Comic Sans MS', cursive;
       text-align: center;
-      background-color: #ffe6e6;
-      margin: 0;
-      padding: 50px;
+      background-color: #fff0f5;
+      padding: 40px;
     }
     h1 {
-      font-size: 2em;
-      color: #ff4d4d;
+      color: #e91e63;
     }
-    .button-container {
-      position: relative;
-      height: 200px;
-      margin-top: 40px;
+    img {
+      width: 250px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-    button {
-      padding: 15px 25px;
+    #text-box {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+      min-height: 60px;
+    }
+    #nextBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
       font-size: 16px;
+      background-color: #ff69b4;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
+      color: white;
       cursor: pointer;
-      position: absolute;
-      transition: top 0.2s, left 0.2s;
-    }
-    #yesBtn {
-      background-color: #4CAF50;
-      color: white;
-      left: 30%;
-    }
-    #noBtn {
-      background-color: #f44336;
-      color: white;
-      left: 60%;
     }
   </style>
 </head>
 <body>
   <h1>Pacarku masih ngambek?</h1>
-  <div class="button-container">
-    <button id="yesBtn">Udah baikan</button>
-    <button id="noBtn">Masih</button>
-  </div>
+
+  <img src="https://raw.githubusercontent.com/starbvoi/ForAleyna/main/aleyna.jpg" alt="Foto Aleyna" />
+
+  <div id="text-box">Tapi kamu tetap cantik walau lagi ngambek...</div>
+
+  <button id="nextBtn">Lanjut ➡️</button>
 
   <script>
-    const noBtn = document.getElementById("noBtn");
+    const texts = [
+      "Tapi kamu tetap cantik walau lagi ngambek...",
+      "Maaf ya kalo aku bikin kamu sebel 😔",
+      "Aku cuma pengen kamu senyum lagi 😊",
+      "Kalau kamu senyum, duniaku ikut cerah 🌞",
+      "Aku sayang kamu, Aleyna. Beneran. 💖",
+      "Jadi, udah nggak ngambek lagi kan? 😚"
+    ];
 
-    noBtn.addEventListener("mouseover", () => {
-      const container = document.querySelector(".button-container");
-      const maxX = container.clientWidth - noBtn.offsetWidth;
-      const maxY = container.clientHeight - noBtn.offsetHeight;
+    let index = 0;
+    const textBox = document.getElementById("text-box");
+    const nextBtn = document.getElementById("nextBtn");
 
-      const randomX = Math.floor(Math.random() * maxX);
-      const randomY = Math.floor(Math.random() * maxY);
-
-      noBtn.style.left = randomX + "px";
-      noBtn.style.top = randomY + "px";
-    });
-
-    document.getElementById("yesBtn").addEventListener("click", () => {
-      alert("Yayyy! Sayang kamu ❤️");
+    nextBtn.addEventListener("click", () => {
+      index++;
+      if (index < texts.length) {
+        textBox.textContent = texts[index];
+      } else {
+        textBox.textContent = "Udah habis pesanku... tapi cintaku ke kamu nggak akan habis 🥰";
+        nextBtn.style.display = "none";
+      }
     });
   </script>
 </body>
