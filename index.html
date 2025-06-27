@@ -21,32 +21,53 @@
       color: #333;
       min-height: 80px;
     }
-    #nextBtn {
+    #nextBtn, .response-btn {
       margin-top: 30px;
       padding: 12px 24px;
       font-size: 18px;
-      background-color: #ff69b4;
       border: none;
       border-radius: 10px;
       color: white;
       cursor: pointer;
     }
+    #nextBtn {
+      background-color: #ff69b4;
+    }
+    .response-container {
+      margin-top: 40px;
+      position: relative;
+      height: 100px;
+      display: none;
+    }
+    #noBtn {
+      background-color: #f44336;
+      position: absolute;
+    }
+    #yesBtn {
+      background-color: #4CAF50;
+    }
   </style>
 </head>
 <body>
-  <h1>Pacarku masih ngambek?</h1>
+  <h1>Buat Aleynaku Yang Cantik</h1>
 
-  <div id="text-box">Tapi kamu tetap manis walau lagi ngambek...</div>
+  <div id="text-box">Hai Bayi kamu lagi ngambek ya?</div>
 
   <button id="nextBtn">Lanjut ➡️</button>
 
+  <div class="response-container">
+    <p style="margin-bottom: 10px; font-weight: bold;">Gimana? Masih ngambek ga? 😗</p>
+    <button id="yesBtn" class="response-btn">Udah baikan</button>
+    <button id="noBtn" class="response-btn">Masih</button>
+  </div>
+
   <script>
     const texts = [
-      "Tapi kamu tetap manis walau lagi ngambek...",
-      "Aku tahu mungkin aku nyebelin, maaf yaa 😔",
-      "Tapi aku cuma pengen kamu bahagia 😢",
-      "Kamu itu penyemangat hariku, beneran 🥺",
-      "Tanpa kamu tuh... sepi banget rasanya 🫠",
+      "Maaf ya bayi kalau aku nyebelin banget tadi",
+      "Kamu merasa ga di perhatiin ya tadi 😔",
+      "Aku minta maaf ya kalau aku bikin kamu sedih😢",
+      "Aku sayang banget sama kamu beneran🥺",
+      "Kalau kamu lagi bete begini rasanya kek sepi banget aku🫠",
       "Jadi jangan lama-lama ngambek yaa 😭",
       "Aku sayang kamu, Aleyna. Banget ❤️",
       "Mau peluk? Aku peluk dari sini 🤗",
@@ -57,15 +78,39 @@
     let index = 0;
     const textBox = document.getElementById("text-box");
     const nextBtn = document.getElementById("nextBtn");
+    const responseContainer = document.querySelector(".response-container");
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
 
     nextBtn.addEventListener("click", () => {
       index++;
       if (index < texts.length) {
         textBox.textContent = texts[index];
       } else {
-        textBox.textContent = "Pesannya udah selesai... tapi rasa sayangnya nggak akan selesai 💘";
+        textBox.textContent = "Udah selesai sih... Tapi ada satu pertanyaan terakhir buat kamu 💌";
         nextBtn.style.display = "none";
+
+        setTimeout(() => {
+          responseContainer.style.display = "block";
+        }, 2000);
       }
+    });
+
+    yesBtn.addEventListener("click", () => {
+      textBox.textContent = "Yaaay! Kamu emang paling gemes! 😍❤️";
+      responseContainer.style.display = "none";
+    });
+
+    noBtn.addEventListener("mouseover", () => {
+      const container = document.querySelector(".response-container");
+      const maxX = container.clientWidth - noBtn.offsetWidth;
+      const maxY = container.clientHeight - noBtn.offsetHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
     });
   </script>
 </body>
